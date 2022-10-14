@@ -3,7 +3,7 @@ import authHeader from "./auth-header";
 import {useNavigate} from "react-router-dom"
 import Login from "../components/Login";
 
-const API_URL = "http://localhost:8000/api/v1/auth/";
+const API_URL = "https://facerecog-gate-be.herokuapp.com/api/v1/auth/";
 
 const register = (firstname, lastname, username, password, imgCount) => {
   return axios.post(API_URL + "register",{
