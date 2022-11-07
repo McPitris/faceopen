@@ -9,7 +9,6 @@ import GlobalCard from "./GlobalCard";
 const Dashboard = () => {
   return (
     <Container maxWidth="lg">
-      <div>Dashboard</div>
       <GlobalCard />
     </Container>
   );
