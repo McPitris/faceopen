@@ -20,9 +20,9 @@ const GlobalCard = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: `http://localhost:8000/api/v1/users/${username}/images/upload`,
+        url: `https://facerecog-gate-be.herokuapp.com/api/v1/users/${username}/images/upload`,
         data: formData,
-        headers: authHeader()
+        headers: authHeader(),
       });
       console.log(response)
       response.status===200 ? loadImages(username) : alert("Chyba!")
@@ -38,7 +38,7 @@ const GlobalCard = () => {
     try {
       const response = await axios({
         method: "DELETE",
-        url: `http://localhost:8000/api/v1/users/images/delete/${imageName}`,
+        url: `https://facerecog-gate-be.herokuapp.com/api/v1/users/images/delete/${imageName}`,
         headers: authHeader(),
       });
       console.log(response);
@@ -52,12 +52,15 @@ const GlobalCard = () => {
     console.log("load images!!!!!!" + usr);
     setUsername(usr);
      axios
-       .get(`http://localhost:8000/api/v1/users/${usr}/images`, {
-         headers: authHeader(),
-       })
+       .get(
+         `https://facerecog-gate-be.herokuapp.com/api/v1/users/${usr}/images`,
+         {
+           headers: authHeader(),
+         }
+       )
        .then((res, err) => {
          try {
-           setImageData(res.data)
+           setImageData(res.data);
          } catch (error) {
            console.log(error);
          }
@@ -65,7 +68,9 @@ const GlobalCard = () => {
   };
   const getAllUsers = () => {
     axios
-      .get("http://localhost:8000/api/v1/users", { headers: authHeader() })
+      .get("https://facerecog-gate-be.herokuapp.com/api/v1/users", {
+        headers: authHeader(),
+      })
       .then((res, err) => {
         try {
           setData(res.data);
