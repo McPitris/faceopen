@@ -20,17 +20,17 @@ function App() {
   }, [])
   
   return (
-    <div className="App">
+    <div className="App" style={{ height: "100vh" }}>
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Login />}/>
-        <Route element={<ProtectedRoutes/>}>
-        <Route path='/dashboard' element={<Dashboard />}/>
-        {/* <Route path='*' element={<Dashboard />}/> */}
-        </Route>
-      </Routes>
+          <Route path="/" element={<Login />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path='*' element={<Dashboard />}/> */}
+          </Route>
+        </Routes>
       </BrowserRouter>
-     {/* <Login /> */}
+      {/* <Login /> */}
     </div>
   );
 }

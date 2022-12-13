@@ -1,7 +1,7 @@
 import { Avatar, Button, Card, CardContent, CardHeader, CardMedia, Fab, Grid, IconButton } from "@mui/material";
 import { Container } from "@mui/system";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import authHeader from "../services/auth-header";
 import BasicSelect from "./BasicSelect";
 import ImageList from "./ImageList";
@@ -87,6 +87,10 @@ const GlobalCard = () => {
         }
       });
   };
+  const logout = ()=>{
+    localStorage.clear();
+    window.location.href = "http://localhost:3000/"
+  }
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -122,6 +126,7 @@ const GlobalCard = () => {
               {uploadBtnVisible && username && (
                 <Upload uploadImage={uploadImage} />
               )}
+              <Button onClick={logout}>Logout</Button>
             </span>
           </div>
           <CardContent>
